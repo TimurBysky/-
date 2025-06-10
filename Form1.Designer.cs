@@ -38,6 +38,8 @@ namespace WindowsFormsApp2
             this.radioButton4 = new System.Windows.Forms.RadioButton();
             this.buttonCheckAnswer = new System.Windows.Forms.Button();
             this.labelResult = new System.Windows.Forms.Label();
+            this.groupBoxOptions = new System.Windows.Forms.GroupBox();
+            this.groupBoxOptions.SuspendLayout();
             this.SuspendLayout();
             // 
             // listBoxQuestions
@@ -56,6 +58,7 @@ namespace WindowsFormsApp2
             this.labelQuestion.Size = new System.Drawing.Size(35, 13);
             this.labelQuestion.TabIndex = 1;
             this.labelQuestion.Text = "label1";
+            this.labelQuestion.Click += new System.EventHandler(this.labelQuestion_Click);
             // 
             // labelTopic
             // 
@@ -69,7 +72,7 @@ namespace WindowsFormsApp2
             // radioButton1
             // 
             this.radioButton1.AutoSize = true;
-            this.radioButton1.Location = new System.Drawing.Point(412, 98);
+            this.radioButton1.Location = new System.Drawing.Point(6, 19);
             this.radioButton1.Name = "radioButton1";
             this.radioButton1.Size = new System.Drawing.Size(85, 17);
             this.radioButton1.TabIndex = 3;
@@ -80,7 +83,7 @@ namespace WindowsFormsApp2
             // radioButton2
             // 
             this.radioButton2.AutoSize = true;
-            this.radioButton2.Location = new System.Drawing.Point(412, 122);
+            this.radioButton2.Location = new System.Drawing.Point(6, 42);
             this.radioButton2.Name = "radioButton2";
             this.radioButton2.Size = new System.Drawing.Size(85, 17);
             this.radioButton2.TabIndex = 4;
@@ -91,7 +94,7 @@ namespace WindowsFormsApp2
             // radioButton3
             // 
             this.radioButton3.AutoSize = true;
-            this.radioButton3.Location = new System.Drawing.Point(412, 146);
+            this.radioButton3.Location = new System.Drawing.Point(6, 65);
             this.radioButton3.Name = "radioButton3";
             this.radioButton3.Size = new System.Drawing.Size(85, 17);
             this.radioButton3.TabIndex = 5;
@@ -102,7 +105,7 @@ namespace WindowsFormsApp2
             // radioButton4
             // 
             this.radioButton4.AutoSize = true;
-            this.radioButton4.Location = new System.Drawing.Point(412, 170);
+            this.radioButton4.Location = new System.Drawing.Point(6, 88);
             this.radioButton4.Name = "radioButton4";
             this.radioButton4.Size = new System.Drawing.Size(85, 17);
             this.radioButton4.TabIndex = 6;
@@ -112,7 +115,7 @@ namespace WindowsFormsApp2
             // 
             // buttonCheckAnswer
             // 
-            this.buttonCheckAnswer.Location = new System.Drawing.Point(422, 220);
+            this.buttonCheckAnswer.Location = new System.Drawing.Point(427, 220);
             this.buttonCheckAnswer.Name = "buttonCheckAnswer";
             this.buttonCheckAnswer.Size = new System.Drawing.Size(75, 23);
             this.buttonCheckAnswer.TabIndex = 7;
@@ -128,23 +131,35 @@ namespace WindowsFormsApp2
             this.labelResult.TabIndex = 8;
             this.labelResult.Text = "label1";
             // 
+            // groupBoxOptions
+            // 
+            this.groupBoxOptions.Controls.Add(this.radioButton1);
+            this.groupBoxOptions.Controls.Add(this.radioButton2);
+            this.groupBoxOptions.Controls.Add(this.radioButton3);
+            this.groupBoxOptions.Controls.Add(this.radioButton4);
+            this.groupBoxOptions.Location = new System.Drawing.Point(411, 93);
+            this.groupBoxOptions.Name = "groupBoxOptions";
+            this.groupBoxOptions.Size = new System.Drawing.Size(114, 121);
+            this.groupBoxOptions.TabIndex = 9;
+            this.groupBoxOptions.TabStop = false;
+            this.groupBoxOptions.Text = "groupBox1";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(537, 310);
+            this.Controls.Add(this.groupBoxOptions);
             this.Controls.Add(this.labelResult);
             this.Controls.Add(this.buttonCheckAnswer);
-            this.Controls.Add(this.radioButton4);
-            this.Controls.Add(this.radioButton3);
-            this.Controls.Add(this.radioButton2);
-            this.Controls.Add(this.radioButton1);
             this.Controls.Add(this.labelTopic);
             this.Controls.Add(this.labelQuestion);
             this.Controls.Add(this.listBoxQuestions);
             this.Name = "Form1";
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.Form1_Load);
+            this.groupBoxOptions.ResumeLayout(false);
+            this.groupBoxOptions.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -152,15 +167,16 @@ namespace WindowsFormsApp2
 
         #endregion
 
-        private System.Windows.Forms.ListBox listBoxQuestions;
-        private System.Windows.Forms.Label labelQuestion;
-        private System.Windows.Forms.Label labelTopic;
-        private System.Windows.Forms.RadioButton radioButton1;
-        private System.Windows.Forms.RadioButton radioButton2;
-        private System.Windows.Forms.RadioButton radioButton3;
-        private System.Windows.Forms.RadioButton radioButton4;
-        private System.Windows.Forms.Button buttonCheckAnswer;
-        private System.Windows.Forms.Label labelResult;
+        protected System.Windows.Forms.ListBox listBoxQuestions;
+        protected System.Windows.Forms.Label labelQuestion;
+        protected System.Windows.Forms.Label labelTopic;
+        protected System.Windows.Forms.RadioButton radioButton1;
+        protected System.Windows.Forms.RadioButton radioButton2;
+        protected System.Windows.Forms.RadioButton radioButton3;
+        protected System.Windows.Forms.RadioButton radioButton4;
+        protected System.Windows.Forms.Button buttonCheckAnswer;
+        protected System.Windows.Forms.Label labelResult;
+        protected System.Windows.Forms.GroupBox groupBoxOptions;
     }
 }
 

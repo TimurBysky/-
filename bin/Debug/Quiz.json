@@ -1,0 +1,16 @@
+{
+  "Questions": [
+    {
+      "Question": "Столица Франции?",
+      "Topic": "География",
+      "Options": ["Берлин", "Мадрид", "Париж", "Рим"],
+      "CorrectAnswerIndex": 2
+    },
+    {
+      "Question": "2 + 2 * 2 = ?",
+      "Topic": "Математика",
+      "Options": ["6", "8", "4"],
+      "CorrectAnswerIndex": 0
+    }
+  ]
+}
