@@ -39,6 +39,7 @@ namespace WindowsFormsApp2
             this.buttonCheckAnswer = new System.Windows.Forms.Button();
             this.labelResult = new System.Windows.Forms.Label();
             this.groupBoxOptions = new System.Windows.Forms.GroupBox();
+            this.buttonNext = new System.Windows.Forms.Button();
             this.groupBoxOptions.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -49,6 +50,7 @@ namespace WindowsFormsApp2
             this.listBoxQuestions.Name = "listBoxQuestions";
             this.listBoxQuestions.Size = new System.Drawing.Size(393, 212);
             this.listBoxQuestions.TabIndex = 0;
+            this.listBoxQuestions.SelectedIndexChanged += new System.EventHandler(this.listBoxQuestions_SelectedIndexChanged);
             // 
             // labelQuestion
             // 
@@ -121,6 +123,7 @@ namespace WindowsFormsApp2
             this.buttonCheckAnswer.TabIndex = 7;
             this.buttonCheckAnswer.Text = "button1";
             this.buttonCheckAnswer.UseVisualStyleBackColor = true;
+            this.buttonCheckAnswer.Click += new System.EventHandler(this.buttonCheckAnswer_Click_1);
             // 
             // labelResult
             // 
@@ -144,11 +147,22 @@ namespace WindowsFormsApp2
             this.groupBoxOptions.TabStop = false;
             this.groupBoxOptions.Text = "groupBox1";
             // 
+            // buttonNext
+            // 
+            this.buttonNext.Location = new System.Drawing.Point(427, 250);
+            this.buttonNext.Name = "buttonNext";
+            this.buttonNext.Size = new System.Drawing.Size(75, 23);
+            this.buttonNext.TabIndex = 10;
+            this.buttonNext.Text = "button1";
+            this.buttonNext.UseVisualStyleBackColor = true;
+            this.buttonNext.Click += new System.EventHandler(this.buttonNext_Click_1);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(537, 310);
+            this.Controls.Add(this.buttonNext);
             this.Controls.Add(this.groupBoxOptions);
             this.Controls.Add(this.labelResult);
             this.Controls.Add(this.buttonCheckAnswer);
@@ -177,6 +191,7 @@ namespace WindowsFormsApp2
         protected System.Windows.Forms.Button buttonCheckAnswer;
         protected System.Windows.Forms.Label labelResult;
         protected System.Windows.Forms.GroupBox groupBoxOptions;
+        private System.Windows.Forms.Button buttonNext;
     }
 }
 
