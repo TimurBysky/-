@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using System.Text.Json;
 using System.Windows.Forms;
 
@@ -9,7 +10,7 @@ namespace WindowsFormsApp2
     public partial class Form1 : Form
     {
         private Quiz quiz;
-        private int currentQuestionIndex = -1;
+        private int currentQuestionIndex = 0;
 
         public Form1()
         {
@@ -147,6 +148,7 @@ namespace WindowsFormsApp2
 
         private void buttonNext_Click_1(object sender, EventArgs e)
         {
+            listBoxQuestions.SelectedIndex += 1;
             ShowNextQuestion();
         }
 
@@ -165,9 +167,9 @@ namespace WindowsFormsApp2
                 return;
 
             var question = quiz.Questions[currentQuestionIndex];
-
+           
             // Обновляем UI
- 
+
             UptadeUI(question);
 
             // Очищаем предыдущие варианты
@@ -197,8 +199,10 @@ namespace WindowsFormsApp2
             if (addForm.ShowDialog() == DialogResult.OK)
             {
                 SaveQuizToJson("quiz.json");
+                LoadQuizFromJson("quiz.json");
                 ShowNextQuestion();
             }
+
         }
     }
 }

@@ -61,6 +61,7 @@ namespace WindowsFormsApp2
                 var newQuestion = new QuizQuestion
                 {
                     Question = textBoxQuestion.Text,
+                    Subject = textBoxSubject.Text,
                     Topic = textBoxTopic.Text,
                     Options = options,
                     CorrectAnswerIndex = correctIndex
@@ -68,6 +69,7 @@ namespace WindowsFormsApp2
 
                 quiz.Questions.Add(newQuestion);
                 MessageBox.Show("Вопрос добавлен!");
+                this.DialogResult = DialogResult.OK;
         }
 
         private void button2_Click(object sender, EventArgs e)
