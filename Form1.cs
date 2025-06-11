@@ -56,9 +56,10 @@ namespace WindowsFormsApp2
             var question = quiz.Questions[currentQuestionIndex];
 
             // Обновляем UI
-            labelQuestion.Text = question.Question;
+            /*labelQuestion.Text = question.Question;
             labelSubject.Text = $"Предмет: {question.Subject}";
-            labelTopic.Text = $"Тема: {question.Topic}";
+            labelTopic.Text = $"Тема: {question.Topic}";*/
+            UptadeUI(question);
 
             // Очищаем предыдущие варианты
             foreach (Control control in groupBoxOptions.Controls)
@@ -90,6 +91,13 @@ namespace WindowsFormsApp2
             labelResult.Text = "";
         }
 
+
+        public void UptadeUI(QuizQuestion question)
+        {
+            labelQuestion.Text = question.Question;
+            labelSubject.Text = $"Предмет: {question.Subject}";
+            labelTopic.Text = $"Тема: {question.Topic}";
+        }
 
         private void SaveQuizToJson(string filePath)
         {
@@ -162,9 +170,10 @@ namespace WindowsFormsApp2
             var question = quiz.Questions[currentQuestionIndex];
 
             // Обновляем UI
-            labelQuestion.Text = question.Question;
+            /*labelQuestion.Text = question.Question;
             labelSubject.Text = $"Предмет: {question.Subject}";
-            labelTopic.Text = $"Тема: {question.Topic}";
+            labelTopic.Text = $"Тема: {question.Topic}";*/
+            UptadeUI(question);
 
             // Очищаем предыдущие варианты
             groupBoxOptions.Controls.Clear();
