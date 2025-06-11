@@ -43,6 +43,7 @@ namespace WindowsFormsApp2
             this.labelTopic = new System.Windows.Forms.Label();
             this.buttonAddForm = new System.Windows.Forms.Button();
             this.buttonDelete = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
             this.groupBoxOptions.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -120,7 +121,7 @@ namespace WindowsFormsApp2
             // 
             // buttonCheckAnswer
             // 
-            this.buttonCheckAnswer.Location = new System.Drawing.Point(246, 240);
+            this.buttonCheckAnswer.Location = new System.Drawing.Point(177, 240);
             this.buttonCheckAnswer.Name = "buttonCheckAnswer";
             this.buttonCheckAnswer.Size = new System.Drawing.Size(75, 23);
             this.buttonCheckAnswer.TabIndex = 7;
@@ -131,7 +132,7 @@ namespace WindowsFormsApp2
             // labelResult
             // 
             this.labelResult.AutoSize = true;
-            this.labelResult.Location = new System.Drawing.Point(90, 250);
+            this.labelResult.Location = new System.Drawing.Point(118, 245);
             this.labelResult.Name = "labelResult";
             this.labelResult.Size = new System.Drawing.Size(35, 13);
             this.labelResult.TabIndex = 8;
@@ -153,7 +154,7 @@ namespace WindowsFormsApp2
             // 
             // buttonNext
             // 
-            this.buttonNext.Location = new System.Drawing.Point(246, 270);
+            this.buttonNext.Location = new System.Drawing.Point(271, 240);
             this.buttonNext.Name = "buttonNext";
             this.buttonNext.Size = new System.Drawing.Size(75, 23);
             this.buttonNext.TabIndex = 10;
@@ -172,7 +173,7 @@ namespace WindowsFormsApp2
             // 
             // buttonAddForm
             // 
-            this.buttonAddForm.Location = new System.Drawing.Point(13, 275);
+            this.buttonAddForm.Location = new System.Drawing.Point(12, 274);
             this.buttonAddForm.Name = "buttonAddForm";
             this.buttonAddForm.Size = new System.Drawing.Size(75, 23);
             this.buttonAddForm.TabIndex = 12;
@@ -182,7 +183,7 @@ namespace WindowsFormsApp2
             // 
             // buttonDelete
             // 
-            this.buttonDelete.Location = new System.Drawing.Point(120, 275);
+            this.buttonDelete.Location = new System.Drawing.Point(12, 240);
             this.buttonDelete.Name = "buttonDelete";
             this.buttonDelete.Size = new System.Drawing.Size(75, 23);
             this.buttonDelete.TabIndex = 13;
@@ -190,11 +191,22 @@ namespace WindowsFormsApp2
             this.buttonDelete.UseVisualStyleBackColor = true;
             this.buttonDelete.Click += new System.EventHandler(this.button1_Click);
             // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(269, 275);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 14;
+            this.button1.Text = "Новый тест";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click_1);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(358, 310);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.buttonDelete);
             this.Controls.Add(this.buttonAddForm);
             this.Controls.Add(this.labelTopic);
@@ -232,6 +244,7 @@ namespace WindowsFormsApp2
         private System.Windows.Forms.Label labelTopic;
         private System.Windows.Forms.Button buttonAddForm;
         private System.Windows.Forms.Button buttonDelete;
+        private System.Windows.Forms.Button button1;
     }
 }
 

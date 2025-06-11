@@ -228,5 +228,11 @@ namespace WindowsFormsApp2
             }
             
         }
+
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+            var addForm = new Form3(quiz);
+            addForm.Show();
+        }
     }
 }
