@@ -31,7 +31,7 @@ namespace WindowsFormsApp2
         {
             this.listBoxQuestions = new System.Windows.Forms.ListBox();
             this.labelQuestion = new System.Windows.Forms.Label();
-            this.labelTopic = new System.Windows.Forms.Label();
+            this.labelSubject = new System.Windows.Forms.Label();
             this.radioButton1 = new System.Windows.Forms.RadioButton();
             this.radioButton2 = new System.Windows.Forms.RadioButton();
             this.radioButton3 = new System.Windows.Forms.RadioButton();
@@ -40,36 +40,37 @@ namespace WindowsFormsApp2
             this.labelResult = new System.Windows.Forms.Label();
             this.groupBoxOptions = new System.Windows.Forms.GroupBox();
             this.buttonNext = new System.Windows.Forms.Button();
+            this.labelTopic = new System.Windows.Forms.Label();
             this.groupBoxOptions.SuspendLayout();
             this.SuspendLayout();
             // 
             // listBoxQuestions
             // 
             this.listBoxQuestions.FormattingEnabled = true;
-            this.listBoxQuestions.Location = new System.Drawing.Point(12, 31);
+            this.listBoxQuestions.Location = new System.Drawing.Point(12, 5);
             this.listBoxQuestions.Name = "listBoxQuestions";
-            this.listBoxQuestions.Size = new System.Drawing.Size(203, 199);
+            this.listBoxQuestions.Size = new System.Drawing.Size(203, 225);
             this.listBoxQuestions.TabIndex = 0;
             this.listBoxQuestions.SelectedIndexChanged += new System.EventHandler(this.listBoxQuestions_SelectedIndexChanged);
             // 
             // labelQuestion
             // 
             this.labelQuestion.AutoSize = true;
-            this.labelQuestion.Location = new System.Drawing.Point(230, 30);
+            this.labelQuestion.Location = new System.Drawing.Point(233, 9);
             this.labelQuestion.Name = "labelQuestion";
             this.labelQuestion.Size = new System.Drawing.Size(35, 13);
             this.labelQuestion.TabIndex = 1;
             this.labelQuestion.Text = "label1";
             this.labelQuestion.Click += new System.EventHandler(this.labelQuestion_Click);
             // 
-            // labelTopic
+            // labelSubject
             // 
-            this.labelTopic.AutoSize = true;
-            this.labelTopic.Location = new System.Drawing.Point(230, 58);
-            this.labelTopic.Name = "labelTopic";
-            this.labelTopic.Size = new System.Drawing.Size(35, 13);
-            this.labelTopic.TabIndex = 2;
-            this.labelTopic.Text = "label2";
+            this.labelSubject.AutoSize = true;
+            this.labelSubject.Location = new System.Drawing.Point(233, 37);
+            this.labelSubject.Name = "labelSubject";
+            this.labelSubject.Size = new System.Drawing.Size(35, 13);
+            this.labelSubject.TabIndex = 2;
+            this.labelSubject.Text = "label2";
             // 
             // radioButton1
             // 
@@ -140,9 +141,9 @@ namespace WindowsFormsApp2
             this.groupBoxOptions.Controls.Add(this.radioButton2);
             this.groupBoxOptions.Controls.Add(this.radioButton3);
             this.groupBoxOptions.Controls.Add(this.radioButton4);
-            this.groupBoxOptions.Location = new System.Drawing.Point(230, 83);
+            this.groupBoxOptions.Location = new System.Drawing.Point(230, 97);
             this.groupBoxOptions.Name = "groupBoxOptions";
-            this.groupBoxOptions.Size = new System.Drawing.Size(114, 150);
+            this.groupBoxOptions.Size = new System.Drawing.Size(114, 136);
             this.groupBoxOptions.TabIndex = 9;
             this.groupBoxOptions.TabStop = false;
             this.groupBoxOptions.Text = "groupBox1";
@@ -157,19 +158,30 @@ namespace WindowsFormsApp2
             this.buttonNext.UseVisualStyleBackColor = true;
             this.buttonNext.Click += new System.EventHandler(this.buttonNext_Click_1);
             // 
+            // labelTopic
+            // 
+            this.labelTopic.AutoSize = true;
+            this.labelTopic.Location = new System.Drawing.Point(233, 67);
+            this.labelTopic.Name = "labelTopic";
+            this.labelTopic.Size = new System.Drawing.Size(35, 13);
+            this.labelTopic.TabIndex = 11;
+            this.labelTopic.Text = "label3";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(358, 310);
+            this.Controls.Add(this.labelTopic);
             this.Controls.Add(this.buttonNext);
             this.Controls.Add(this.groupBoxOptions);
             this.Controls.Add(this.labelResult);
             this.Controls.Add(this.buttonCheckAnswer);
-            this.Controls.Add(this.labelTopic);
+            this.Controls.Add(this.labelSubject);
             this.Controls.Add(this.labelQuestion);
             this.Controls.Add(this.listBoxQuestions);
             this.Name = "Form1";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.groupBoxOptions.ResumeLayout(false);
@@ -183,7 +195,7 @@ namespace WindowsFormsApp2
 
         protected System.Windows.Forms.ListBox listBoxQuestions;
         protected System.Windows.Forms.Label labelQuestion;
-        protected System.Windows.Forms.Label labelTopic;
+        protected System.Windows.Forms.Label labelSubject;
         protected System.Windows.Forms.RadioButton radioButton1;
         protected System.Windows.Forms.RadioButton radioButton2;
         protected System.Windows.Forms.RadioButton radioButton3;
@@ -192,6 +204,7 @@ namespace WindowsFormsApp2
         protected System.Windows.Forms.Label labelResult;
         protected System.Windows.Forms.GroupBox groupBoxOptions;
         private System.Windows.Forms.Button buttonNext;
+        private System.Windows.Forms.Label labelTopic;
     }
 }
 

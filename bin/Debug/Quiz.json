@@ -3,13 +3,15 @@
     {
       "Question": "Столица Франции?",
       "Subject": "География",
+      "Topic" : "Столицы стран",
       "Options": ["Берлин", "Мадрид", "Париж", "Рим"],
       "CorrectAnswerIndex": 2
     },
     {
       "Question": "2 + 2 * 2 = ?",
       "Subject": "Математика",
-      "Options": ["6", "8", "4"],
+      "Topic": "Сложение",
+      "Options": [ "6", "8", "4" ],
       "CorrectAnswerIndex": 0
     }
   ]

@@ -6,6 +6,7 @@ namespace WindowsFormsApp2
     {
         public string Question { get; set; }
         public string Subject { get; set; }
+        public string Topic { get; set; }
         public List<string> Options { get; set; }
         public int CorrectAnswerIndex { get; set; }
     }
