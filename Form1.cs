@@ -57,7 +57,7 @@ namespace WindowsFormsApp2
 
             // Обновляем UI
             labelQuestion.Text = question.Question;
-            labelTopic.Text = $"Тема: {question.Topic}";
+            labelTopic.Text = $"Тема: {question.Subject}";
 
             // Очищаем предыдущие варианты
             foreach (Control control in groupBoxOptions.Controls)
@@ -136,6 +136,7 @@ namespace WindowsFormsApp2
 
             bool isCorrect = selectedIndex == quiz.Questions[currentQuestionIndex].CorrectAnswerIndex;
             labelResult.Text = isCorrect ? "Правильно!" : "Неправильно!";
+            ShowNextQuestion();
         }
 
         private void buttonNext_Click_1(object sender, EventArgs e)
@@ -161,7 +162,7 @@ namespace WindowsFormsApp2
 
             // Обновляем UI
             labelQuestion.Text = question.Question;
-            labelTopic.Text = $"Тема: {question.Topic}";
+            labelTopic.Text = $"Тема: {question.Subject}";
 
             // Очищаем предыдущие варианты
             groupBoxOptions.Controls.Clear();

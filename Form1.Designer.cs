@@ -48,14 +48,14 @@ namespace WindowsFormsApp2
             this.listBoxQuestions.FormattingEnabled = true;
             this.listBoxQuestions.Location = new System.Drawing.Point(12, 31);
             this.listBoxQuestions.Name = "listBoxQuestions";
-            this.listBoxQuestions.Size = new System.Drawing.Size(393, 212);
+            this.listBoxQuestions.Size = new System.Drawing.Size(203, 199);
             this.listBoxQuestions.TabIndex = 0;
             this.listBoxQuestions.SelectedIndexChanged += new System.EventHandler(this.listBoxQuestions_SelectedIndexChanged);
             // 
             // labelQuestion
             // 
             this.labelQuestion.AutoSize = true;
-            this.labelQuestion.Location = new System.Drawing.Point(411, 40);
+            this.labelQuestion.Location = new System.Drawing.Point(230, 30);
             this.labelQuestion.Name = "labelQuestion";
             this.labelQuestion.Size = new System.Drawing.Size(35, 13);
             this.labelQuestion.TabIndex = 1;
@@ -65,7 +65,7 @@ namespace WindowsFormsApp2
             // labelTopic
             // 
             this.labelTopic.AutoSize = true;
-            this.labelTopic.Location = new System.Drawing.Point(411, 68);
+            this.labelTopic.Location = new System.Drawing.Point(230, 58);
             this.labelTopic.Name = "labelTopic";
             this.labelTopic.Size = new System.Drawing.Size(35, 13);
             this.labelTopic.TabIndex = 2;
@@ -117,7 +117,7 @@ namespace WindowsFormsApp2
             // 
             // buttonCheckAnswer
             // 
-            this.buttonCheckAnswer.Location = new System.Drawing.Point(427, 220);
+            this.buttonCheckAnswer.Location = new System.Drawing.Point(246, 240);
             this.buttonCheckAnswer.Name = "buttonCheckAnswer";
             this.buttonCheckAnswer.Size = new System.Drawing.Size(75, 23);
             this.buttonCheckAnswer.TabIndex = 7;
@@ -128,7 +128,7 @@ namespace WindowsFormsApp2
             // labelResult
             // 
             this.labelResult.AutoSize = true;
-            this.labelResult.Location = new System.Drawing.Point(198, 250);
+            this.labelResult.Location = new System.Drawing.Point(90, 250);
             this.labelResult.Name = "labelResult";
             this.labelResult.Size = new System.Drawing.Size(35, 13);
             this.labelResult.TabIndex = 8;
@@ -140,16 +140,16 @@ namespace WindowsFormsApp2
             this.groupBoxOptions.Controls.Add(this.radioButton2);
             this.groupBoxOptions.Controls.Add(this.radioButton3);
             this.groupBoxOptions.Controls.Add(this.radioButton4);
-            this.groupBoxOptions.Location = new System.Drawing.Point(411, 93);
+            this.groupBoxOptions.Location = new System.Drawing.Point(230, 83);
             this.groupBoxOptions.Name = "groupBoxOptions";
-            this.groupBoxOptions.Size = new System.Drawing.Size(114, 121);
+            this.groupBoxOptions.Size = new System.Drawing.Size(114, 150);
             this.groupBoxOptions.TabIndex = 9;
             this.groupBoxOptions.TabStop = false;
             this.groupBoxOptions.Text = "groupBox1";
             // 
             // buttonNext
             // 
-            this.buttonNext.Location = new System.Drawing.Point(427, 250);
+            this.buttonNext.Location = new System.Drawing.Point(246, 270);
             this.buttonNext.Name = "buttonNext";
             this.buttonNext.Size = new System.Drawing.Size(75, 23);
             this.buttonNext.TabIndex = 10;
@@ -161,7 +161,7 @@ namespace WindowsFormsApp2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(537, 310);
+            this.ClientSize = new System.Drawing.Size(358, 310);
             this.Controls.Add(this.buttonNext);
             this.Controls.Add(this.groupBoxOptions);
             this.Controls.Add(this.labelResult);
