@@ -56,9 +56,6 @@ namespace WindowsFormsApp2
             var question = quiz.Questions[currentQuestionIndex];
 
             // Обновляем UI
-            /*labelQuestion.Text = question.Question;
-            labelSubject.Text = $"Предмет: {question.Subject}";
-            labelTopic.Text = $"Тема: {question.Topic}";*/
             UptadeUI(question);
 
             // Очищаем предыдущие варианты
@@ -170,9 +167,7 @@ namespace WindowsFormsApp2
             var question = quiz.Questions[currentQuestionIndex];
 
             // Обновляем UI
-            /*labelQuestion.Text = question.Question;
-            labelSubject.Text = $"Предмет: {question.Subject}";
-            labelTopic.Text = $"Тема: {question.Topic}";*/
+ 
             UptadeUI(question);
 
             // Очищаем предыдущие варианты
@@ -194,6 +189,16 @@ namespace WindowsFormsApp2
 
             // Обновляем выделение в ListBox
             listBoxQuestions.SelectedIndex = currentQuestionIndex;
+        }
+
+        private void buttonAddForm_Click(object sender, EventArgs e)
+        {
+            var addForm = new Form2(quiz);
+            if (addForm.ShowDialog() == DialogResult.OK)
+            {
+                SaveQuizToJson("quiz.json");
+                ShowNextQuestion();
+            }
         }
     }
 }
