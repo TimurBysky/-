@@ -10,7 +10,7 @@ namespace WindowsFormsApp2
     public partial class Form1 : Form
     {
         private Quiz quiz;
-        private int currentQuestionIndex = 0;
+        private int currentQuestionIndex = -1;
 
         public Form1()
         {
@@ -95,6 +95,7 @@ namespace WindowsFormsApp2
             labelQuestion.Text = question.Question;
             labelSubject.Text = $"Предмет: {question.Subject}";
             labelTopic.Text = $"Тема: {question.Topic}";
+            listBoxQuestions.SelectedIndex = currentQuestionIndex;
         }
 
         private void SaveQuizToJson(string filePath)
@@ -148,7 +149,6 @@ namespace WindowsFormsApp2
 
         private void buttonNext_Click_1(object sender, EventArgs e)
         {
-            listBoxQuestions.SelectedIndex += 1;
             ShowNextQuestion();
         }
 
