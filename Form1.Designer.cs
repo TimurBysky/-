@@ -42,6 +42,7 @@ namespace WindowsFormsApp2
             this.buttonNext = new System.Windows.Forms.Button();
             this.labelTopic = new System.Windows.Forms.Label();
             this.buttonAddForm = new System.Windows.Forms.Button();
+            this.buttonDelete = new System.Windows.Forms.Button();
             this.groupBoxOptions.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -123,7 +124,7 @@ namespace WindowsFormsApp2
             this.buttonCheckAnswer.Name = "buttonCheckAnswer";
             this.buttonCheckAnswer.Size = new System.Drawing.Size(75, 23);
             this.buttonCheckAnswer.TabIndex = 7;
-            this.buttonCheckAnswer.Text = "button1";
+            this.buttonCheckAnswer.Text = "Проверить";
             this.buttonCheckAnswer.UseVisualStyleBackColor = true;
             this.buttonCheckAnswer.Click += new System.EventHandler(this.buttonCheckAnswer_Click_1);
             // 
@@ -147,7 +148,8 @@ namespace WindowsFormsApp2
             this.groupBoxOptions.Size = new System.Drawing.Size(114, 136);
             this.groupBoxOptions.TabIndex = 9;
             this.groupBoxOptions.TabStop = false;
-            this.groupBoxOptions.Text = "groupBox1";
+            this.groupBoxOptions.Text = "Варианты ответов";
+            this.groupBoxOptions.Enter += new System.EventHandler(this.groupBoxOptions_Enter);
             // 
             // buttonNext
             // 
@@ -155,7 +157,7 @@ namespace WindowsFormsApp2
             this.buttonNext.Name = "buttonNext";
             this.buttonNext.Size = new System.Drawing.Size(75, 23);
             this.buttonNext.TabIndex = 10;
-            this.buttonNext.Text = "button1";
+            this.buttonNext.Text = "Далее";
             this.buttonNext.UseVisualStyleBackColor = true;
             this.buttonNext.Click += new System.EventHandler(this.buttonNext_Click_1);
             // 
@@ -174,15 +176,26 @@ namespace WindowsFormsApp2
             this.buttonAddForm.Name = "buttonAddForm";
             this.buttonAddForm.Size = new System.Drawing.Size(75, 23);
             this.buttonAddForm.TabIndex = 12;
-            this.buttonAddForm.Text = "button1";
+            this.buttonAddForm.Text = "Создать";
             this.buttonAddForm.UseVisualStyleBackColor = true;
             this.buttonAddForm.Click += new System.EventHandler(this.buttonAddForm_Click);
+            // 
+            // buttonDelete
+            // 
+            this.buttonDelete.Location = new System.Drawing.Point(120, 275);
+            this.buttonDelete.Name = "buttonDelete";
+            this.buttonDelete.Size = new System.Drawing.Size(75, 23);
+            this.buttonDelete.TabIndex = 13;
+            this.buttonDelete.Text = "Удалить";
+            this.buttonDelete.UseVisualStyleBackColor = true;
+            this.buttonDelete.Click += new System.EventHandler(this.button1_Click);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(358, 310);
+            this.Controls.Add(this.buttonDelete);
             this.Controls.Add(this.buttonAddForm);
             this.Controls.Add(this.labelTopic);
             this.Controls.Add(this.buttonNext);
@@ -218,6 +231,7 @@ namespace WindowsFormsApp2
         private System.Windows.Forms.Button buttonNext;
         private System.Windows.Forms.Label labelTopic;
         private System.Windows.Forms.Button buttonAddForm;
+        private System.Windows.Forms.Button buttonDelete;
     }
 }
 

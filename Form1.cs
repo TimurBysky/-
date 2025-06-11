@@ -204,5 +204,29 @@ namespace WindowsFormsApp2
             }
 
         }
+
+        private void groupBoxOptions_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+
+            if (listBoxQuestions.SelectedIndex == -1)
+            {
+                MessageBox.Show("Выберите вопрос для удаления!");
+                return;
+            }
+
+            var dialog = (MessageBox.Show("Вы уверены?", "Внимание!", MessageBoxButtons.YesNoCancel));
+            if(dialog == DialogResult.Yes)
+            {
+                quiz.RemoveQuestion(currentQuestionIndex);
+                SaveQuizToJson("quiz.json");
+                LoadQuizFromJson("quiz.json");
+            }
+            
+        }
     }
 }

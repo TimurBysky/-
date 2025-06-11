@@ -22,46 +22,6 @@
         "4"
       ],
       "CorrectAnswerIndex": 0
-    },
-    {
-      "Question": "3131313",
-      "Subject": null,
-      "Topic": "",
-      "Options": [
-        "13132",
-        "31313"
-      ],
-      "CorrectAnswerIndex": 1
-    },
-    {
-      "Question": "11313",
-      "Subject": null,
-      "Topic": "",
-      "Options": [
-        "222",
-        "2222"
-      ],
-      "CorrectAnswerIndex": 1
-    },
-    {
-      "Question": "rrr",
-      "Subject": null,
-      "Topic": "",
-      "Options": [
-        "rrr",
-        "rrrr"
-      ],
-      "CorrectAnswerIndex": 1
-    },
-    {
-      "Question": "\u0422\u0435\u0441\u0442",
-      "Subject": "",
-      "Topic": "",
-      "Options": [
-        "1",
-        "2"
-      ],
-      "CorrectAnswerIndex": 0
     }
   ]
 }

@@ -14,5 +14,13 @@ namespace WindowsFormsApp2
     public class Quiz
     {
         public List<QuizQuestion> Questions { get; set; } = new List<QuizQuestion>();
+
+        public void RemoveQuestion(int index)
+        {
+            if (index >= 0 && index < Questions.Count)
+            {
+                Questions.RemoveAt(index);
+            }
+        }
     }
 }
