@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 
 namespace WindowsFormsApp2
 {
@@ -21,6 +22,15 @@ namespace WindowsFormsApp2
             {
                 Questions.RemoveAt(index);
             }
+        }
+
+        public List<string> GetTopicBySubject(List<string> selectedSubjects)
+        {
+            return Questions
+                .Where(q => selectedSubjects.Contains(q.Subject))
+                .Select(q => q.Topic)
+                .Distinct()
+                .ToList();
         }
     }
 }

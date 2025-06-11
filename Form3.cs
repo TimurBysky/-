@@ -33,5 +33,12 @@ namespace WindowsFormsApp2
                 checkedListBoxSubjects.Items.Add(subject);
             }
         }
+
+        void loadTopics()
+        {
+            checkedListBoxTopics.DisplayMember = "Topic"; // Показываем текст вопроса
+
+
+        }
     }
 }
