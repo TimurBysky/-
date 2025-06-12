@@ -30,7 +30,7 @@ namespace WindowsFormsApp2
             loadTopics(null);
         }
 
-        void loadSubjects()
+        private void loadSubjects()
         {
             HashSet<string> setSubjects = new HashSet<string>();//Удаляет дубликаты 
             //var question = quiz.Questions[currentQuestionIndex];
@@ -66,7 +66,7 @@ namespace WindowsFormsApp2
             //throw new NotImplementedException();
         }
 
-        void loadTopics(string subjectSelected)
+        private void loadTopics(string subjectSelected)
         {
             checkedListBoxTopics.Items.Clear();
 
@@ -84,17 +84,60 @@ namespace WindowsFormsApp2
 
         private void buttonSaveToRTF_Click(object sender, EventArgs e)
         {
-            var select = sender as CheckedListBox;
-            //selectedTopic.Clear();
+            Console.WriteLine(selectedSubject);
 
-            foreach (var item in select.CheckedItems) // Проверяем только отмеченные
+            selectedTopic.Clear();
+            foreach (var item in checkedListBoxTopics.CheckedItems) // Проверяем только отмеченные
             {
                 selectedTopic.Add(item.ToString()); // Добавляем в список
-                Console.WriteLine(item); // Выводим в консоль (для отладки)
+                Console.WriteLine(item);
             }
 
-            //SaveLinesToTxtFile(selectedTopic);
+            if (string.IsNullOrEmpty(selectedSubject) || selectedTopic.Count == 0 || selectedTopic.Any(string.IsNullOrEmpty))
+            {
+                MessageBox.Show("Выберите предмет и хотя бы одну тему!");
+                return;
+            }
+
+            var count = numericUpDownQuesNumber.Value;
+            var randomQuestions= generateRandomQuestions((int)count);
+
+            foreach(var q in randomQuestions)
+            {
+                Console.WriteLine("Вопрос: " + q.Question + "Тема :" + q.Topic);
+            }
+            
         }
+
+        private List<QuizQuestion> generateRandomQuestions(int count)
+        {
+            var filter = quiz.Questions
+                .Where(q => q.Subject == selectedSubject && selectedTopic.Contains(q.Topic))
+                .ToList();
+
+            if(filter.Count == 0)
+            {
+                return filter;
+            }
+
+            Random random = new Random();
+            return filter
+                .OrderBy(q => random.Next())
+                .Take(count)
+                .ToList();
+        }
+
+        private void setLimits()
+        {
+            var filter = quiz.GetTopicBySubject(selectedSubject);
+            numericUpDownQuesNumber.Maximum = filter.Count;
+
+            if (numericUpDownQuesNumber.Value > numericUpDownQuesNumber.Maximum)
+            {
+                numericUpDownQuesNumber.Value = numericUpDownQuesNumber.Maximum;
+            }
+        }
+
 
         private void SaveLinesToTxtFile(IEnumerable<string> lines)
         {
@@ -119,7 +162,7 @@ namespace WindowsFormsApp2
 
         private void checkedListBoxTopics_ItemCheck(object sender, ItemCheckEventArgs e)
         {
-
+            setLimits();
         }
     }
 }
