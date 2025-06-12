@@ -66,18 +66,13 @@ namespace WindowsFormsApp2
         void loadTopics(string subjectSelected)
         {
             checkedListBoxTopics.Items.Clear();
-            HashSet<string> setTopics = new HashSet<string>();
 
             checkedListBoxTopics.DisplayMember = "Topic"; // Показываем текст вопроса
 
             var filter = quiz.GetTopicBySubject(subjectSelected);
-
-            foreach (var topic in filter)
-            {
-                setTopics.Add(topic);
-            }
+            filter = filter.Distinct().ToList();
             
-            checkedListBoxTopics.Items.AddRange(setTopics.ToArray());
+            checkedListBoxTopics.Items.AddRange(filter.ToArray());
 
             //if(checkedListBoxSubjects.SelectedItems.Contains())
 

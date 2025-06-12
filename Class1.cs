@@ -29,7 +29,6 @@ namespace WindowsFormsApp2
             return Questions
                 .Where(q => selectedSubjects==q.Subject)
                 .Select(q => q.Topic)
-                .Distinct()
                 .ToList();
         }
     }
