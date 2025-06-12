@@ -24,10 +24,10 @@ namespace WindowsFormsApp2
             }
         }
 
-        public List<string> GetTopicBySubject(List<string> selectedSubjects)
+        public List<string> GetTopicBySubject(string selectedSubjects)
         {
             return Questions
-                .Where(q => selectedSubjects.Contains(q.Subject))
+                .Where(q => selectedSubjects==q.Subject)
                 .Select(q => q.Topic)
                 .Distinct()
                 .ToList();

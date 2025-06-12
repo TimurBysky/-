@@ -13,6 +13,8 @@ namespace WindowsFormsApp2
     public partial class Form3 : Form
     {
         private Quiz quiz;
+        private string selectedSubject;
+        
         public Form3(Quiz quiz)
         {
             InitializeComponent();
@@ -22,23 +24,65 @@ namespace WindowsFormsApp2
         private void Form3_Load(object sender, EventArgs e)
         {
             loadSubjects();
+            loadTopics(null);
         }
 
         void loadSubjects()
         {
-            checkedListBoxSubjects.DisplayMember = "Subject"; // Показываем текст вопроса
+            HashSet<string> setSubjects = new HashSet<string>();//Удаляет дубликаты 
+            //var question = quiz.Questions[currentQuestionIndex];
 
             foreach (var subject in quiz.Questions)
             {
-                checkedListBoxSubjects.Items.Add(subject);
+                setSubjects.Add(subject.Subject);
             }
+
+            for(int i = 0; i < setSubjects.Count; i ++)
+            {
+                RadioButton radioButton = new RadioButton
+                {
+                    Text = setSubjects.ToList()[i],
+                    Location = new System.Drawing.Point(10, 20 + i * 15),
+                    AutoSize = true,
+                    
+                };
+                radioButton.CheckedChanged += RadioButton_CheckedChanged;
+                groupBox1.Controls.Add(radioButton);
+            }
+
         }
 
-        void loadTopics()
+        private void RadioButton_CheckedChanged(object sender, EventArgs e)
         {
+            RadioButton selectedRatio = sender as RadioButton;
+            if(selectedRatio != null && selectedRatio.Checked)
+            {
+                selectedSubject = selectedRatio.Text;
+            }
+            loadTopics(selectedSubject);
+            //throw new NotImplementedException();
+        }
+
+        void loadTopics(string subjectSelected)
+        {
+            checkedListBoxTopics.Items.Clear();
+            HashSet<string> setTopics = new HashSet<string>();
+
             checkedListBoxTopics.DisplayMember = "Topic"; // Показываем текст вопроса
 
+            var filter = quiz.GetTopicBySubject(subjectSelected);
+
+            foreach (var topic in filter)
+            {
+                setTopics.Add(topic);
+            }
+            
+            checkedListBoxTopics.Items.AddRange(setTopics.ToArray());
+
+            //if(checkedListBoxSubjects.SelectedItems.Contains())
 
         }
+
+        
     }
 }

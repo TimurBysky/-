@@ -30,11 +30,11 @@ namespace WindowsFormsApp2
         private void InitializeComponent()
         {
             this.buttonCreate = new System.Windows.Forms.Button();
-            this.checkedListBoxSubjects = new System.Windows.Forms.CheckedListBox();
             this.checkedListBoxTopics = new System.Windows.Forms.CheckedListBox();
             this.numericUpDownQuesNumber = new System.Windows.Forms.NumericUpDown();
             this.numericUpDownTopicsNumber = new System.Windows.Forms.NumericUpDown();
             this.numericUpDownTestsNumber = new System.Windows.Forms.NumericUpDown();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownQuesNumber)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownTopicsNumber)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownTestsNumber)).BeginInit();
@@ -48,14 +48,6 @@ namespace WindowsFormsApp2
             this.buttonCreate.TabIndex = 0;
             this.buttonCreate.Text = "button1";
             this.buttonCreate.UseVisualStyleBackColor = true;
-            // 
-            // checkedListBoxSubjects
-            // 
-            this.checkedListBoxSubjects.FormattingEnabled = true;
-            this.checkedListBoxSubjects.Location = new System.Drawing.Point(12, 12);
-            this.checkedListBoxSubjects.Name = "checkedListBoxSubjects";
-            this.checkedListBoxSubjects.Size = new System.Drawing.Size(178, 244);
-            this.checkedListBoxSubjects.TabIndex = 1;
             // 
             // checkedListBoxTopics
             // 
@@ -86,16 +78,25 @@ namespace WindowsFormsApp2
             this.numericUpDownTestsNumber.Size = new System.Drawing.Size(120, 20);
             this.numericUpDownTestsNumber.TabIndex = 5;
             // 
+            // groupBox1
+            // 
+            this.groupBox1.Location = new System.Drawing.Point(13, 12);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(177, 244);
+            this.groupBox1.TabIndex = 6;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "groupBox1";
+            // 
             // Form3
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(557, 281);
+            this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.numericUpDownTestsNumber);
             this.Controls.Add(this.numericUpDownTopicsNumber);
             this.Controls.Add(this.numericUpDownQuesNumber);
             this.Controls.Add(this.checkedListBoxTopics);
-            this.Controls.Add(this.checkedListBoxSubjects);
             this.Controls.Add(this.buttonCreate);
             this.Name = "Form3";
             this.Text = "Form3";
@@ -110,10 +111,10 @@ namespace WindowsFormsApp2
         #endregion
 
         private System.Windows.Forms.Button buttonCreate;
-        private System.Windows.Forms.CheckedListBox checkedListBoxSubjects;
         private System.Windows.Forms.CheckedListBox checkedListBoxTopics;
         private System.Windows.Forms.NumericUpDown numericUpDownQuesNumber;
         private System.Windows.Forms.NumericUpDown numericUpDownTopicsNumber;
         private System.Windows.Forms.NumericUpDown numericUpDownTestsNumber;
+        private System.Windows.Forms.GroupBox groupBox1;
     }
 }
