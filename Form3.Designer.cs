@@ -35,6 +35,8 @@ namespace WindowsFormsApp2
             this.numericUpDownTopicsNumber = new System.Windows.Forms.NumericUpDown();
             this.numericUpDownTestsNumber = new System.Windows.Forms.NumericUpDown();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.buttonSaveToRTF = new System.Windows.Forms.Button();
+            this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownQuesNumber)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownTopicsNumber)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownTestsNumber)).BeginInit();
@@ -42,11 +44,11 @@ namespace WindowsFormsApp2
             // 
             // buttonCreate
             // 
-            this.buttonCreate.Location = new System.Drawing.Point(470, 233);
+            this.buttonCreate.Location = new System.Drawing.Point(436, 202);
             this.buttonCreate.Name = "buttonCreate";
-            this.buttonCreate.Size = new System.Drawing.Size(75, 23);
+            this.buttonCreate.Size = new System.Drawing.Size(109, 23);
             this.buttonCreate.TabIndex = 0;
-            this.buttonCreate.Text = "button1";
+            this.buttonCreate.Text = "Начать тест";
             this.buttonCreate.UseVisualStyleBackColor = true;
             // 
             // checkedListBoxTopics
@@ -56,6 +58,7 @@ namespace WindowsFormsApp2
             this.checkedListBoxTopics.Name = "checkedListBoxTopics";
             this.checkedListBoxTopics.Size = new System.Drawing.Size(207, 244);
             this.checkedListBoxTopics.TabIndex = 2;
+            this.checkedListBoxTopics.ItemCheck += new System.Windows.Forms.ItemCheckEventHandler(this.checkedListBoxTopics_ItemCheck);
             // 
             // numericUpDownQuesNumber
             // 
@@ -87,11 +90,22 @@ namespace WindowsFormsApp2
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "groupBox1";
             // 
+            // buttonSaveToRTF
+            // 
+            this.buttonSaveToRTF.Location = new System.Drawing.Point(436, 232);
+            this.buttonSaveToRTF.Name = "buttonSaveToRTF";
+            this.buttonSaveToRTF.Size = new System.Drawing.Size(109, 23);
+            this.buttonSaveToRTF.TabIndex = 7;
+            this.buttonSaveToRTF.Text = "Сохранить билеты";
+            this.buttonSaveToRTF.UseVisualStyleBackColor = true;
+            this.buttonSaveToRTF.Click += new System.EventHandler(this.buttonSaveToRTF_Click);
+            // 
             // Form3
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(557, 281);
+            this.Controls.Add(this.buttonSaveToRTF);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.numericUpDownTestsNumber);
             this.Controls.Add(this.numericUpDownTopicsNumber);
@@ -116,5 +130,7 @@ namespace WindowsFormsApp2
         private System.Windows.Forms.NumericUpDown numericUpDownTopicsNumber;
         private System.Windows.Forms.NumericUpDown numericUpDownTestsNumber;
         private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.Button buttonSaveToRTF;
+        private System.Windows.Forms.SaveFileDialog saveFileDialog1;
     }
 }

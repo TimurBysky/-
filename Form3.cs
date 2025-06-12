@@ -7,6 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.IO;
+
 
 namespace WindowsFormsApp2
 {
@@ -14,6 +16,7 @@ namespace WindowsFormsApp2
     {
         private Quiz quiz;
         private string selectedSubject;
+        private List<string> selectedTopic = new List<string>();
         
         public Form3(Quiz quiz)
         {
@@ -70,14 +73,53 @@ namespace WindowsFormsApp2
             checkedListBoxTopics.DisplayMember = "Topic"; // Показываем текст вопроса
 
             var filter = quiz.GetTopicBySubject(subjectSelected);
-            filter = filter.Distinct().ToList();
+            filter = filter.Distinct().ToList();//Удаляет дубликаты (да, также)
             
             checkedListBoxTopics.Items.AddRange(filter.ToArray());
-
+            
             //if(checkedListBoxSubjects.SelectedItems.Contains())
 
         }
 
-        
+
+        private void buttonSaveToRTF_Click(object sender, EventArgs e)
+        {
+            var select = sender as CheckedListBox;
+            //selectedTopic.Clear();
+
+            foreach (var item in select.CheckedItems) // Проверяем только отмеченные
+            {
+                selectedTopic.Add(item.ToString()); // Добавляем в список
+                Console.WriteLine(item); // Выводим в консоль (для отладки)
+            }
+
+            //SaveLinesToTxtFile(selectedTopic);
+        }
+
+        private void SaveLinesToTxtFile(IEnumerable<string> lines)
+        {
+            SaveFileDialog saveFileDialog = new SaveFileDialog();
+            saveFileDialog.Filter = "Текстовые файлы (*.txt)|*.txt|Все файлы (*.*)|*.*";
+            saveFileDialog.Title = "Сохранить как текстовый файл";
+
+            if (saveFileDialog.ShowDialog() == DialogResult.OK)
+            {
+                try
+                {
+                    File.WriteAllLines(saveFileDialog.FileName, lines);
+                    MessageBox.Show("Файл успешно сохранен!");
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show($"Ошибка при сохранении файла: {ex.Message}");
+                }
+            }
+        }
+
+
+        private void checkedListBoxTopics_ItemCheck(object sender, ItemCheckEventArgs e)
+        {
+
+        }
     }
 }
