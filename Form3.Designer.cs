@@ -50,6 +50,7 @@ namespace WindowsFormsApp2
             this.buttonCreate.TabIndex = 0;
             this.buttonCreate.Text = "Начать тест";
             this.buttonCreate.UseVisualStyleBackColor = true;
+            this.buttonCreate.Click += new System.EventHandler(this.buttonCreate_Click);
             // 
             // checkedListBoxTopics
             // 

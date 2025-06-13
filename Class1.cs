@@ -31,5 +31,12 @@ namespace WindowsFormsApp2
                 .Select(q => q.Topic)
                 .ToList();
         }
+
+        public int GetTopicCount(string selectedSubjects,List<string> selectedTopics)
+        {
+            return Questions
+                .Count(q => q.Subject == selectedSubjects &&
+                       selectedTopics.Contains(q.Topic));
+        }
     }
 }

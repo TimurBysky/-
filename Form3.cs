@@ -100,7 +100,7 @@ namespace WindowsFormsApp2
             }
 
             var count = numericUpDownQuesNumber.Value;
-            var randomQuestions= generateRandomQuestions((int)count);
+            var randomQuestions= GenerateRandomQuestions((int)count);
 
             foreach(var q in randomQuestions)
             {
@@ -109,28 +109,31 @@ namespace WindowsFormsApp2
             
         }
 
-        private List<QuizQuestion> generateRandomQuestions(int count)
+        private List<QuizQuestion> GenerateRandomQuestions(int questionsPerTopic)
         {
-            var filter = quiz.Questions
-                .Where(q => q.Subject == selectedSubject && selectedTopic.Contains(q.Topic))
-                .ToList();
+            var result = new List<QuizQuestion>();
+            Random random = new Random();
 
-            if(filter.Count == 0)
+            foreach (var topic in selectedTopic)
             {
-                return filter;
+                var topicQuestions = quiz.Questions
+                    .Where(q => q.Subject == selectedSubject && q.Topic == topic)
+                    .OrderBy(q => random.Next())
+                    .Take(questionsPerTopic)
+                    .ToList();
+
+                result.AddRange(topicQuestions);
             }
 
-            Random random = new Random();
-            return filter
-                .OrderBy(q => random.Next())
-                .Take(count)
-                .ToList();
+            return result.OrderBy(q => random.Next()).ToList();
         }
 
         private void setLimits()
         {
-            var filter = quiz.GetTopicBySubject(selectedSubject);
-            numericUpDownQuesNumber.Maximum = filter.Count;
+            var filter = quiz.GetTopicCount(selectedSubject, selectedTopic);
+            Console.WriteLine(filter);
+
+            numericUpDownQuesNumber.Maximum = filter;
 
             if (numericUpDownQuesNumber.Value > numericUpDownQuesNumber.Maximum)
             {
@@ -162,7 +165,42 @@ namespace WindowsFormsApp2
 
         private void checkedListBoxTopics_ItemCheck(object sender, ItemCheckEventArgs e)
         {
-            setLimits();
+            Console.WriteLine("Клик по квадратику!");
+            //setLimits();
+        }
+
+        private void buttonCreate_Click(object sender, EventArgs e)
+        {
+            Console.WriteLine(selectedSubject);
+
+            selectedTopic.Clear();
+            foreach (var item in checkedListBoxTopics.CheckedItems) // Проверяем только отмеченные
+            {
+                selectedTopic.Add(item.ToString()); // Добавляем в список
+                Console.WriteLine(item);
+            }
+
+            if (string.IsNullOrEmpty(selectedSubject) || selectedTopic.Count == 0 || selectedTopic.Any(string.IsNullOrEmpty))
+            {
+                MessageBox.Show("Выберите предмет и хотя бы одну тему!");
+                return;
+            }
+
+            var billCount = numericUpDownTestsNumber.Value;
+            var count = numericUpDownQuesNumber.Value;
+
+            for(int i = 0; i <= billCount; i++)
+            {
+                var randomQuestions = GenerateRandomQuestions((int)count);
+
+                Console.WriteLine("Билет №" + i + ":");
+
+                foreach (var q in randomQuestions)
+                {
+                    Console.WriteLine("Вопрос: " + q.Question + "Тема :" + q.Topic);
+                }
+            }
+
         }
     }
 }
