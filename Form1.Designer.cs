@@ -50,6 +50,7 @@ namespace WindowsFormsApp2
             // listBoxQuestions
             // 
             this.listBoxQuestions.FormattingEnabled = true;
+            this.listBoxQuestions.HorizontalScrollbar = true;
             this.listBoxQuestions.Location = new System.Drawing.Point(12, 5);
             this.listBoxQuestions.Name = "listBoxQuestions";
             this.listBoxQuestions.Size = new System.Drawing.Size(203, 225);

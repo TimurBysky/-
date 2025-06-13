@@ -38,6 +38,8 @@ namespace WindowsFormsApp2
             this.buttonSaveToRTF = new System.Windows.Forms.Button();
             this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
             this.checkBoxAllowDuplicates = new System.Windows.Forms.CheckBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownQuesNumber)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownTopicsNumber)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownTestsNumber)).BeginInit();
@@ -45,7 +47,7 @@ namespace WindowsFormsApp2
             // 
             // buttonCreate
             // 
-            this.buttonCreate.Location = new System.Drawing.Point(436, 202);
+            this.buttonCreate.Location = new System.Drawing.Point(425, 202);
             this.buttonCreate.Name = "buttonCreate";
             this.buttonCreate.Size = new System.Drawing.Size(109, 23);
             this.buttonCreate.TabIndex = 0;
@@ -56,7 +58,7 @@ namespace WindowsFormsApp2
             // checkedListBoxTopics
             // 
             this.checkedListBoxTopics.FormattingEnabled = true;
-            this.checkedListBoxTopics.Location = new System.Drawing.Point(196, 12);
+            this.checkedListBoxTopics.Location = new System.Drawing.Point(173, 12);
             this.checkedListBoxTopics.Name = "checkedListBoxTopics";
             this.checkedListBoxTopics.Size = new System.Drawing.Size(207, 244);
             this.checkedListBoxTopics.TabIndex = 2;
@@ -64,21 +66,21 @@ namespace WindowsFormsApp2
             // 
             // numericUpDownQuesNumber
             // 
-            this.numericUpDownQuesNumber.Location = new System.Drawing.Point(425, 12);
+            this.numericUpDownQuesNumber.Location = new System.Drawing.Point(388, 45);
             this.numericUpDownQuesNumber.Name = "numericUpDownQuesNumber";
             this.numericUpDownQuesNumber.Size = new System.Drawing.Size(120, 20);
             this.numericUpDownQuesNumber.TabIndex = 3;
             // 
             // numericUpDownTopicsNumber
             // 
-            this.numericUpDownTopicsNumber.Location = new System.Drawing.Point(425, 52);
+            this.numericUpDownTopicsNumber.Location = new System.Drawing.Point(425, 153);
             this.numericUpDownTopicsNumber.Name = "numericUpDownTopicsNumber";
             this.numericUpDownTopicsNumber.Size = new System.Drawing.Size(120, 20);
             this.numericUpDownTopicsNumber.TabIndex = 4;
             // 
             // numericUpDownTestsNumber
             // 
-            this.numericUpDownTestsNumber.Location = new System.Drawing.Point(425, 92);
+            this.numericUpDownTestsNumber.Location = new System.Drawing.Point(388, 91);
             this.numericUpDownTestsNumber.Name = "numericUpDownTestsNumber";
             this.numericUpDownTestsNumber.Size = new System.Drawing.Size(120, 20);
             this.numericUpDownTestsNumber.TabIndex = 5;
@@ -87,14 +89,14 @@ namespace WindowsFormsApp2
             // 
             this.groupBox1.Location = new System.Drawing.Point(13, 12);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(177, 244);
+            this.groupBox1.Size = new System.Drawing.Size(154, 244);
             this.groupBox1.TabIndex = 6;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "groupBox1";
             // 
             // buttonSaveToRTF
             // 
-            this.buttonSaveToRTF.Location = new System.Drawing.Point(436, 232);
+            this.buttonSaveToRTF.Location = new System.Drawing.Point(425, 232);
             this.buttonSaveToRTF.Name = "buttonSaveToRTF";
             this.buttonSaveToRTF.Size = new System.Drawing.Size(109, 23);
             this.buttonSaveToRTF.TabIndex = 7;
@@ -105,18 +107,38 @@ namespace WindowsFormsApp2
             // checkBoxAllowDuplicates
             // 
             this.checkBoxAllowDuplicates.AutoSize = true;
-            this.checkBoxAllowDuplicates.Location = new System.Drawing.Point(425, 131);
+            this.checkBoxAllowDuplicates.Location = new System.Drawing.Point(388, 117);
             this.checkBoxAllowDuplicates.Name = "checkBoxAllowDuplicates";
             this.checkBoxAllowDuplicates.Size = new System.Drawing.Size(133, 17);
             this.checkBoxAllowDuplicates.TabIndex = 8;
             this.checkBoxAllowDuplicates.Text = "Повторять вопросы?";
             this.checkBoxAllowDuplicates.UseVisualStyleBackColor = true;
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(385, 29);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(168, 13);
+            this.label1.TabIndex = 9;
+            this.label1.Text = "Количество вопросов по темам";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(385, 75);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(110, 13);
+            this.label2.TabIndex = 10;
+            this.label2.Text = "Количество билетов";
+            // 
             // Form3
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(557, 281);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.checkBoxAllowDuplicates);
             this.Controls.Add(this.buttonSaveToRTF);
             this.Controls.Add(this.groupBox1);
@@ -147,5 +169,7 @@ namespace WindowsFormsApp2
         private System.Windows.Forms.Button buttonSaveToRTF;
         private System.Windows.Forms.SaveFileDialog saveFileDialog1;
         private System.Windows.Forms.CheckBox checkBoxAllowDuplicates;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label2;
     }
 }

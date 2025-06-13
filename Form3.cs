@@ -196,7 +196,7 @@ namespace WindowsFormsApp2
             return result.OrderBy(q => random.Next()).ToList();
         }*/
 
-        private void setLimits()
+        private void SetLimits()
         {
             var filter = quiz.GetTopicCount(selectedSubject, selectedTopic);
             Console.WriteLine(filter);
@@ -222,6 +222,7 @@ namespace WindowsFormsApp2
 
         private void buttonCreate_Click(object sender, EventArgs e)
         {
+            generatedTickets.Clear();
             usedQuestionIds.Clear();
             // Сбор выбранных тем
             selectedTopic.Clear();
@@ -261,7 +262,13 @@ namespace WindowsFormsApp2
                     Console.WriteLine($"- Вопрос: {q.Question} (Тема: {q.Topic})");
                     if (!allowDuplicates) usedQuestionIds.Add(q.Id); // Запоминаем использованные вопросы
                 }
+                generatedTickets.Add(testQuestions);
             }
+
+            //Создаём окно с тестами и закрываем нынешнее
+            var newForm = new Form4(generatedTickets);
+            newForm.Show();
+            this.Hide();
         }
 
         private List<QuizQuestion> GenerateTestQuestions(int questionsPerTopic, bool allowDuplicates)
