@@ -17,7 +17,11 @@ namespace WindowsFormsApp2
         private Quiz quiz;
         private string selectedSubject;
         private List<string> selectedTopic = new List<string>();
-        
+        private readonly Random random = new Random();
+        private HashSet<int> usedQuestionIds = new HashSet<int>(); // Для отслеживания использованных вопросов
+
+        private List<List<QuizQuestion>> generatedTickets = new List<List<QuizQuestion>>();
+
         public Form3(Quiz quiz)
         {
             InitializeComponent();
@@ -84,32 +88,96 @@ namespace WindowsFormsApp2
 
         private void buttonSaveToRTF_Click(object sender, EventArgs e)
         {
-            Console.WriteLine(selectedSubject);
+            // 1. Инициализация
+            generatedTickets.Clear();
 
+            // 2. Сбор выбранных тем (без очистки usedQuestionIds здесь!)
             selectedTopic.Clear();
-            foreach (var item in checkedListBoxTopics.CheckedItems) // Проверяем только отмеченные
+            foreach (var item in checkedListBoxTopics.CheckedItems)
             {
-                selectedTopic.Add(item.ToString()); // Добавляем в список
-                Console.WriteLine(item);
+                selectedTopic.Add(item.ToString());
             }
 
-            if (string.IsNullOrEmpty(selectedSubject) || selectedTopic.Count == 0 || selectedTopic.Any(string.IsNullOrEmpty))
+            // 3. Проверка ввода
+            if (string.IsNullOrEmpty(selectedSubject) || selectedTopic.Count == 0)
             {
                 MessageBox.Show("Выберите предмет и хотя бы одну тему!");
                 return;
             }
 
-            var count = numericUpDownQuesNumber.Value;
-            var randomQuestions= GenerateRandomQuestions((int)count);
+            int testsCount = (int)numericUpDownTestsNumber.Value;
+            int questionsPerTopic = (int)numericUpDownQuesNumber.Value;
+            bool allowDuplicates = checkBoxAllowDuplicates.Checked;
 
-            foreach(var q in randomQuestions)
+            if (testsCount <= 0 || questionsPerTopic <= 0)
             {
-                Console.WriteLine("Вопрос: " + q.Question + "Тема :" + q.Topic);
+                MessageBox.Show("Количество билетов и вопросов должно быть больше 0!");
+                return;
             }
-            
+
+            // 4. Генерация билетов
+            for (int i = 0; i < testsCount; i++)
+            {
+                var testQuestions = GenerateTestQuestions(questionsPerTopic, allowDuplicates);
+
+                if (testQuestions.Count == 0)
+                {
+                    MessageBox.Show($"Не удалось сгенерировать билет №{i + 1}. Вопросы закончились!");
+                    break;
+                }
+
+                generatedTickets.Add(testQuestions);
+            }
+
+            // 5. Сохранение в файл
+            SaveTicketsToFile(generatedTickets);
         }
 
-        private List<QuizQuestion> GenerateRandomQuestions(int questionsPerTopic)
+        private void SaveTicketsToFile(List<List<QuizQuestion>> tickets)
+        {
+            SaveFileDialog saveFileDialog = new SaveFileDialog
+            {
+                Filter = "Текстовые файлы (*.txt)|*.txt|Файлы RTF (*.rtf)|*.rtf|Все файлы (*.*)|*.*",
+                Title = "Сохранить билеты"
+            };
+
+            if (saveFileDialog.ShowDialog() == DialogResult.OK)
+            {
+                try
+                {
+                    var lines = new List<string>();
+
+                    for (int i = 0; i < tickets.Count; i++)
+                    {
+                        lines.Add($"=== Билет №{i + 1} ===");
+                        lines.Add($"Предмет: {selectedSubject}");
+                        lines.Add($"Темы: {string.Join(", ", selectedTopic)}");
+                        lines.Add("");
+
+                        foreach (var question in tickets[i])
+                        {
+                            lines.Add($"Вопрос: {question.Question}");
+                            lines.Add($"Тема: {question.Topic}");
+                            lines.Add($"Варианты: {string.Join(", ", question.Options)}");
+                            lines.Add($"Правильный ответ: {question.Options[question.CorrectAnswerIndex]}");
+                            lines.Add("");
+                        }
+
+                        lines.Add(new string('-', 40));
+                        lines.Add("");
+                    }
+
+                    File.WriteAllLines(saveFileDialog.FileName, lines);
+                    MessageBox.Show($"Сохранено {tickets.Count} билетов в файл!");
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show($"Ошибка сохранения: {ex.Message}");
+                }
+            }
+        }
+
+        /*private List<QuizQuestion> GenerateRandomQuestions(int questionsPerTopic)
         {
             var result = new List<QuizQuestion>();
             Random random = new Random();
@@ -126,7 +194,7 @@ namespace WindowsFormsApp2
             }
 
             return result.OrderBy(q => random.Next()).ToList();
-        }
+        }*/
 
         private void setLimits()
         {
@@ -142,25 +210,7 @@ namespace WindowsFormsApp2
         }
 
 
-        private void SaveLinesToTxtFile(IEnumerable<string> lines)
-        {
-            SaveFileDialog saveFileDialog = new SaveFileDialog();
-            saveFileDialog.Filter = "Текстовые файлы (*.txt)|*.txt|Все файлы (*.*)|*.*";
-            saveFileDialog.Title = "Сохранить как текстовый файл";
-
-            if (saveFileDialog.ShowDialog() == DialogResult.OK)
-            {
-                try
-                {
-                    File.WriteAllLines(saveFileDialog.FileName, lines);
-                    MessageBox.Show("Файл успешно сохранен!");
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show($"Ошибка при сохранении файла: {ex.Message}");
-                }
-            }
-        }
+     
 
 
         private void checkedListBoxTopics_ItemCheck(object sender, ItemCheckEventArgs e)
@@ -169,38 +219,88 @@ namespace WindowsFormsApp2
             //setLimits();
         }
 
+
         private void buttonCreate_Click(object sender, EventArgs e)
         {
-            Console.WriteLine(selectedSubject);
-
+            usedQuestionIds.Clear();
+            // Сбор выбранных тем
             selectedTopic.Clear();
-            foreach (var item in checkedListBoxTopics.CheckedItems) // Проверяем только отмеченные
+            foreach (var item in checkedListBoxTopics.CheckedItems)
             {
-                selectedTopic.Add(item.ToString()); // Добавляем в список
-                Console.WriteLine(item);
+                selectedTopic.Add(item.ToString());
             }
 
-            if (string.IsNullOrEmpty(selectedSubject) || selectedTopic.Count == 0 || selectedTopic.Any(string.IsNullOrEmpty))
+            // Проверка ввода
+            if (string.IsNullOrEmpty(selectedSubject) || selectedTopic.Count == 0)
             {
                 MessageBox.Show("Выберите предмет и хотя бы одну тему!");
                 return;
             }
 
-            var billCount = numericUpDownTestsNumber.Value;
-            var count = numericUpDownQuesNumber.Value;
+            int testsCount = (int)numericUpDownTestsNumber.Value;
+            int questionsPerTopic = (int)numericUpDownQuesNumber.Value;
+            bool allowDuplicates = checkBoxAllowDuplicates.Checked; // Чекбокс для разрешения повторов
 
-            for(int i = 0; i <= billCount; i++)
+            if (testsCount <= 0 || questionsPerTopic <= 0)
             {
-                var randomQuestions = GenerateRandomQuestions((int)count);
+                MessageBox.Show("Количество билетов и вопросов должно быть больше 0!");
+                return;
+            }
 
-                Console.WriteLine("Билет №" + i + ":");
+            // Сброс списка использованных вопросов, если разрешены повторы или при новом запуске
+            if (allowDuplicates) usedQuestionIds.Clear();
 
-                foreach (var q in randomQuestions)
+            // Генерация билетов
+            for (int i = 0; i < testsCount; i++)
+            {
+                var testQuestions = GenerateTestQuestions(questionsPerTopic, allowDuplicates);
+
+                Console.WriteLine($"\nБилет №{i + 1}:");
+                foreach (var q in testQuestions)
                 {
-                    Console.WriteLine("Вопрос: " + q.Question + "Тема :" + q.Topic);
+                    Console.WriteLine($"- Вопрос: {q.Question} (Тема: {q.Topic})");
+                    if (!allowDuplicates) usedQuestionIds.Add(q.Id); // Запоминаем использованные вопросы
+                }
+            }
+        }
+
+        private List<QuizQuestion> GenerateTestQuestions(int questionsPerTopic, bool allowDuplicates)
+        {
+            var testQuestions = new List<QuizQuestion>();
+            var questionsByTopic = new Dictionary<string, List<QuizQuestion>>();
+
+            // Группируем вопросы по темам
+            foreach (var topic in selectedTopic)
+            {
+                var topicQuestions = quiz.Questions
+                    .Where(q => q.Subject == selectedSubject &&
+                               q.Topic == topic &&
+                               (allowDuplicates || !usedQuestionIds.Contains(q.Id)))
+                    .OrderBy(q => random.Next())
+                    .Take(questionsPerTopic)
+                    .ToList();
+
+                questionsByTopic[topic] = topicQuestions;
+            }
+
+            // Проверяем, хватает ли вопросов
+            foreach (var topic in questionsByTopic)
+            {
+                if (topic.Value.Count < questionsPerTopic)
+                {
+                    MessageBox.Show($"Недостаточно вопросов по теме '{topic.Key}'. Доступно: {topic.Value.Count}, требуется: {questionsPerTopic}");
+                    return new List<QuizQuestion>();
                 }
             }
 
+            // Формируем билет
+            foreach (var topic in questionsByTopic)
+            {
+                testQuestions.AddRange(topic.Value.Take(questionsPerTopic));
+            }
+
+            // Перемешиваем вопросы в билете
+            return testQuestions.OrderBy(q => random.Next()).ToList();
         }
     }
 }

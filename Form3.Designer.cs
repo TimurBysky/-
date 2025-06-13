@@ -37,6 +37,7 @@ namespace WindowsFormsApp2
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.buttonSaveToRTF = new System.Windows.Forms.Button();
             this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
+            this.checkBoxAllowDuplicates = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownQuesNumber)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownTopicsNumber)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownTestsNumber)).BeginInit();
@@ -101,11 +102,22 @@ namespace WindowsFormsApp2
             this.buttonSaveToRTF.UseVisualStyleBackColor = true;
             this.buttonSaveToRTF.Click += new System.EventHandler(this.buttonSaveToRTF_Click);
             // 
+            // checkBoxAllowDuplicates
+            // 
+            this.checkBoxAllowDuplicates.AutoSize = true;
+            this.checkBoxAllowDuplicates.Location = new System.Drawing.Point(425, 131);
+            this.checkBoxAllowDuplicates.Name = "checkBoxAllowDuplicates";
+            this.checkBoxAllowDuplicates.Size = new System.Drawing.Size(133, 17);
+            this.checkBoxAllowDuplicates.TabIndex = 8;
+            this.checkBoxAllowDuplicates.Text = "Повторять вопросы?";
+            this.checkBoxAllowDuplicates.UseVisualStyleBackColor = true;
+            // 
             // Form3
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(557, 281);
+            this.Controls.Add(this.checkBoxAllowDuplicates);
             this.Controls.Add(this.buttonSaveToRTF);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.numericUpDownTestsNumber);
@@ -120,6 +132,7 @@ namespace WindowsFormsApp2
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownTopicsNumber)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownTestsNumber)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -133,5 +146,6 @@ namespace WindowsFormsApp2
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Button buttonSaveToRTF;
         private System.Windows.Forms.SaveFileDialog saveFileDialog1;
+        private System.Windows.Forms.CheckBox checkBoxAllowDuplicates;
     }
 }
