@@ -32,3 +32,4 @@ C:\Users\Тимур\source\repos\WindowsFormsApp2\WindowsFormsApp2\obj\Debug\Win
 C:\Users\Тимур\source\repos\WindowsFormsApp2\WindowsFormsApp2\obj\Debug\WindowsFormsApp2.Form2.resources
 C:\Users\Тимур\source\repos\WindowsFormsApp2\WindowsFormsApp2\obj\Debug\WindowsFormsApp2.Form3.resources
 C:\Users\Тимур\source\repos\WindowsFormsApp2\WindowsFormsApp2\obj\Debug\WindowsFormsApp2.Form4.resources
+C:\Users\Тимур\source\repos\WindowsFormsApp2\WindowsFormsApp2\obj\Debug\WindowsFormsApp2.Form5.resources

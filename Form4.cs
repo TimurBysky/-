@@ -183,7 +183,17 @@ namespace WindowsFormsApp2
                 ShowQuestion(currentTicket[currentQuestionIndex]);
             }
         }
+
+        private void buttonResults_Click(object sender, EventArgs e)
+        {
+            SaveCurrentAnswer(); // Сохраняем текущий ответ перед показом результатов
+
+            var resultsForm = new Form5(tickets, userAnswers);
+            resultsForm.ShowDialog();
+        }
     }
+
+
 
     public class UserAnswer
     {

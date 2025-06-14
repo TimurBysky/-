@@ -37,7 +37,7 @@ namespace WindowsFormsApp2
             this.radioButton3 = new System.Windows.Forms.RadioButton();
             this.radioButton2 = new System.Windows.Forms.RadioButton();
             this.radioButton1 = new System.Windows.Forms.RadioButton();
-            this.button1 = new System.Windows.Forms.Button();
+            this.buttonResults = new System.Windows.Forms.Button();
             this.labelTicket = new System.Windows.Forms.Label();
             this.buttonNext = new System.Windows.Forms.Button();
             this.labelQuestion = new System.Windows.Forms.Label();
@@ -132,14 +132,15 @@ namespace WindowsFormsApp2
             this.radioButton1.Text = "radioButton1";
             this.radioButton1.UseVisualStyleBackColor = true;
             // 
-            // button1
+            // buttonResults
             // 
-            this.button1.Location = new System.Drawing.Point(343, 12);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 4;
-            this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = true;
+            this.buttonResults.Location = new System.Drawing.Point(343, 12);
+            this.buttonResults.Name = "buttonResults";
+            this.buttonResults.Size = new System.Drawing.Size(75, 23);
+            this.buttonResults.TabIndex = 4;
+            this.buttonResults.Text = "button1";
+            this.buttonResults.UseVisualStyleBackColor = true;
+            this.buttonResults.Click += new System.EventHandler(this.buttonResults_Click);
             // 
             // labelTicket
             // 
@@ -179,7 +180,7 @@ namespace WindowsFormsApp2
             this.Controls.Add(this.labelQuestion);
             this.Controls.Add(this.buttonNext);
             this.Controls.Add(this.labelTicket);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.buttonResults);
             this.Controls.Add(this.groupBoxOptions);
             this.Controls.Add(this.labelTopic);
             this.Controls.Add(this.labelSubject);
@@ -204,7 +205,7 @@ namespace WindowsFormsApp2
         private System.Windows.Forms.RadioButton radioButton3;
         private System.Windows.Forms.RadioButton radioButton2;
         private System.Windows.Forms.RadioButton radioButton1;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button buttonResults;
         private System.Windows.Forms.Label labelTicket;
         private System.Windows.Forms.Button buttonNext;
         private System.Windows.Forms.Label labelQuestion;
