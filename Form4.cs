@@ -140,9 +140,10 @@ namespace WindowsFormsApp2
 
             // Переходим к следующему вопросу или билету
             var currentTicket = tickets[currentTicketIndex];
-            currentQuestionIndex++;
+            //currentQuestionIndex++;
 
-            if (currentQuestionIndex >= currentTicket.Count)
+
+            if (currentQuestionIndex >= currentTicket.Count -1 )
             {
                 // Переходим к следующему билету
                 currentTicketIndex++;
@@ -159,6 +160,8 @@ namespace WindowsFormsApp2
             }
             else
             {
+                listBoxQuestions.SelectedIndex++;
+                currentQuestionIndex = listBoxQuestions.SelectedIndex;
                 // Показываем следующий вопрос в текущем билете
                 ShowQuestion(currentTicket[currentQuestionIndex]);
             }
@@ -166,6 +169,8 @@ namespace WindowsFormsApp2
 
         private void listBoxQuestions_SelectedIndexChanged(object sender, EventArgs e)
         {
+            var currentTicket = tickets[currentTicketIndex];
+
             if (listBoxQuestions.SelectedIndex >= 0 &&
                 currentTicketIndex >= 0 &&
                 currentTicketIndex < tickets.Count)
@@ -175,7 +180,7 @@ namespace WindowsFormsApp2
 
                 // Показываем выбранный вопрос
                 currentQuestionIndex = listBoxQuestions.SelectedIndex;
-                ShowQuestion(tickets[currentTicketIndex][currentQuestionIndex]);
+                ShowQuestion(currentTicket[currentQuestionIndex]);
             }
         }
     }
