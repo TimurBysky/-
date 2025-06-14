@@ -57,40 +57,12 @@ namespace WindowsFormsApp2
             var question = quiz.Questions[currentQuestionIndex];
 
             // Обновляем UI
-            UptadeUI(question);
+            UpdateUI(question);
 
-            // Очищаем предыдущие варианты
-            foreach (Control control in groupBoxOptions.Controls)
-            {
-                if (control is RadioButton) control.Visible = false;
-            }
-
-            // Добавляем новые варианты
-            for (int i = 0; i < question.Options.Count; i++)
-            {
-                RadioButton radioButton;
-                if (i < groupBoxOptions.Controls.Count)
-                {
-                    radioButton = (RadioButton)groupBoxOptions.Controls[i];
-                }
-                else
-                {
-                    radioButton = new RadioButton();
-                    radioButton.AutoSize = true;
-                    radioButton.Location = new System.Drawing.Point(10, 20 + i * 30);
-                    groupBoxOptions.Controls.Add(radioButton);
-                }
-
-                radioButton.Text = question.Options[i];
-                radioButton.Visible = true;
-                radioButton.Checked = false;
-            }
-
-            labelResult.Text = "";
         }
 
 
-        public void UptadeUI(QuizQuestion question)
+        public void UpdateUI(QuizQuestion question)
         {
             labelQuestion.Text = question.Question;
             labelSubject.Text = $"Предмет: {question.Subject}";
@@ -127,23 +99,13 @@ namespace WindowsFormsApp2
             if (currentQuestionIndex < 0 || currentQuestionIndex >= quiz.Questions.Count) return;
 
             int selectedIndex = -1;
-            for (int i = 0; i < groupBoxOptions.Controls.Count; i++)
-            {
-                if (groupBoxOptions.Controls[i] is RadioButton radio && radio.Checked)
-                {
-                    selectedIndex = i;
-                    break;
-                }
-            }
 
             if (selectedIndex == -1)
             {
-                labelResult.Text = "Выберите ответ!";
                 return;
             }
 
             bool isCorrect = selectedIndex == quiz.Questions[currentQuestionIndex].CorrectAnswerIndex;
-            labelResult.Text = isCorrect ? "Правильно!" : "Неправильно!";
             //ShowNextQuestion();
         }
 
@@ -167,27 +129,26 @@ namespace WindowsFormsApp2
                 return;
 
             var question = quiz.Questions[currentQuestionIndex];
-           
+
             // Обновляем UI
+            UpdateUI(question);
 
-            UptadeUI(question);
-
-            // Очищаем предыдущие варианты
-            groupBoxOptions.Controls.Clear();
-
-            // Добавляем новые варианты
-            for (int i = 0; i < question.Options.Count; i++)
+            // Очищаем и заполняем listBoxAnswers
+            listBoxAnswers.Items.Clear();
+            foreach (var option in question.Options)
             {
-                RadioButton radioButton = new RadioButton
-                {
-                    Text = question.Options[i],
-                    Location = new System.Drawing.Point(10, 20 + i * 30),
-                    AutoSize = true
-                };
-                groupBoxOptions.Controls.Add(radioButton);
+                listBoxAnswers.Items.Add(option);
             }
 
-            labelResult.Text = "";
+            // Показываем правильный ответ
+            if (question.CorrectAnswerIndex >= 0 && question.CorrectAnswerIndex < question.Options.Count)
+            {
+                labelCorrectAnswer.Text = $"Правильный ответ: {question.Options[question.CorrectAnswerIndex]}";
+            }
+            else
+            {
+                labelCorrectAnswer.Text = "Правильный ответ не указан";
+            }
 
             // Обновляем выделение в ListBox
             listBoxQuestions.SelectedIndex = currentQuestionIndex;
