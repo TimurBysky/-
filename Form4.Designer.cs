@@ -186,7 +186,7 @@ namespace WindowsFormsApp2
             this.Controls.Add(this.labelSubject);
             this.Controls.Add(this.listBoxQuestions);
             this.Name = "Form4";
-            this.Text = "Form4";
+            this.Text = "Тест";
             this.Load += new System.EventHandler(this.Form4_Load);
             this.groupBoxOptions.ResumeLayout(false);
             this.groupBoxOptions.PerformLayout();

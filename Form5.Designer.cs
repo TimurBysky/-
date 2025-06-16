@@ -93,7 +93,7 @@ namespace WindowsFormsApp2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(533, 450);
             this.Controls.Add(this.labelPercentage);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.labelCorrect);
@@ -101,7 +101,7 @@ namespace WindowsFormsApp2
             this.Controls.Add(this.labelTotalQuestions);
             this.Controls.Add(this.treeViewResults);
             this.Name = "Form5";
-            this.Text = "Form5";
+            this.Text = "Результаты";
             this.Load += new System.EventHandler(this.Form5_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

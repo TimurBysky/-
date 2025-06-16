@@ -224,7 +224,7 @@ namespace WindowsFormsApp2
             this.Controls.Add(this.textBoxSubject);
             this.Controls.Add(this.textBoxQuestion);
             this.Name = "Form2";
-            this.Text = "Form2";
+            this.Text = "Создание вопросов";
             this.Load += new System.EventHandler(this.Form2_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

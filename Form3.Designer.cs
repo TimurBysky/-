@@ -37,7 +37,6 @@ namespace WindowsFormsApp2
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.buttonSaveToRTF = new System.Windows.Forms.Button();
             this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
-            this.checkBoxAllowDuplicates = new System.Windows.Forms.CheckBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownQuesNumber)).BeginInit();
@@ -104,16 +103,6 @@ namespace WindowsFormsApp2
             this.buttonSaveToRTF.UseVisualStyleBackColor = true;
             this.buttonSaveToRTF.Click += new System.EventHandler(this.buttonSaveToRTF_Click);
             // 
-            // checkBoxAllowDuplicates
-            // 
-            this.checkBoxAllowDuplicates.AutoSize = true;
-            this.checkBoxAllowDuplicates.Location = new System.Drawing.Point(388, 117);
-            this.checkBoxAllowDuplicates.Name = "checkBoxAllowDuplicates";
-            this.checkBoxAllowDuplicates.Size = new System.Drawing.Size(133, 17);
-            this.checkBoxAllowDuplicates.TabIndex = 8;
-            this.checkBoxAllowDuplicates.Text = "Повторять вопросы?";
-            this.checkBoxAllowDuplicates.UseVisualStyleBackColor = true;
-            // 
             // label1
             // 
             this.label1.AutoSize = true;
@@ -139,7 +128,6 @@ namespace WindowsFormsApp2
             this.ClientSize = new System.Drawing.Size(557, 281);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.checkBoxAllowDuplicates);
             this.Controls.Add(this.buttonSaveToRTF);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.numericUpDownTestsNumber);
@@ -148,7 +136,7 @@ namespace WindowsFormsApp2
             this.Controls.Add(this.checkedListBoxTopics);
             this.Controls.Add(this.buttonCreate);
             this.Name = "Form3";
-            this.Text = "Form3";
+            this.Text = "Новый тест";
             this.Load += new System.EventHandler(this.Form3_Load);
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownQuesNumber)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownTopicsNumber)).EndInit();
@@ -168,7 +156,6 @@ namespace WindowsFormsApp2
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Button buttonSaveToRTF;
         private System.Windows.Forms.SaveFileDialog saveFileDialog1;
-        private System.Windows.Forms.CheckBox checkBoxAllowDuplicates;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
     }

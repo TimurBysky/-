@@ -107,7 +107,7 @@ namespace WindowsFormsApp2
 
             int testsCount = (int)numericUpDownTestsNumber.Value;
             int questionsPerTopic = (int)numericUpDownQuesNumber.Value;
-            bool allowDuplicates = checkBoxAllowDuplicates.Checked;
+            bool allowDuplicates = true;
 
             if (testsCount <= 0 || questionsPerTopic <= 0)
             {
@@ -118,7 +118,7 @@ namespace WindowsFormsApp2
             // 4. Генерация билетов
             for (int i = 0; i < testsCount; i++)
             {
-                var testQuestions = GenerateTestQuestions(questionsPerTopic, allowDuplicates);
+                var testQuestions = GenerateTestQuestions(questionsPerTopic, true);
 
                 if (testQuestions.Count == 0)
                 {
@@ -240,7 +240,7 @@ namespace WindowsFormsApp2
 
             int testsCount = (int)numericUpDownTestsNumber.Value;
             int questionsPerTopic = (int)numericUpDownQuesNumber.Value;
-            bool allowDuplicates = checkBoxAllowDuplicates.Checked; // Чекбокс для разрешения повторов
+            bool allowDuplicates = true;
 
             if (testsCount <= 0 || questionsPerTopic <= 0)
             {
@@ -254,7 +254,7 @@ namespace WindowsFormsApp2
             // Генерация билетов
             for (int i = 0; i < testsCount; i++)
             {
-                var testQuestions = GenerateTestQuestions(questionsPerTopic, allowDuplicates);
+                var testQuestions = GenerateTestQuestions(questionsPerTopic, true);
 
                 Console.WriteLine($"\nБилет №{i + 1}:");
                 foreach (var q in testQuestions)
