@@ -12,6 +12,9 @@ namespace WindowsFormsApp2
 {
     public partial class Form5 : Form
     {
+        private List<List<QuizQuestion>> _tickets;
+        private List<UserAnswer> _userAnswers;
+
         public Form5()
         {
             InitializeComponent();
@@ -26,6 +29,12 @@ namespace WindowsFormsApp2
         {
             InitializeComponent();
             ShowResults(tickets, userAnswers);
+            _tickets = tickets;
+            _userAnswers = userAnswers;
+
+
+            // Подписываемся на событие двойного клика
+            treeViewResults.NodeMouseDoubleClick += treeViewResults_NodeMouseDoubleClick;
         }
 
         private void ShowResults(List<List<QuizQuestion>> tickets, List<UserAnswer> userAnswers)
@@ -83,7 +92,36 @@ namespace WindowsFormsApp2
 
         private void treeViewResults_NodeMouseDoubleClick(object sender, TreeNodeMouseClickEventArgs e)
         {
+            // Проверяем, что кликнули по вопросу (а не по билету)
+            if (e.Node.Parent == null) return;
 
+            // Получаем индексы билета и вопроса
+            int ticketIndex = e.Node.Parent.Index;
+            int questionIndex = e.Node.Index;
+
+            // Получаем вопрос и ответ
+            var question = _tickets[ticketIndex][questionIndex];
+            var answer = _userAnswers.FirstOrDefault(a =>
+                a.TicketIndex == ticketIndex &&
+                a.QuestionIndex == questionIndex);
+
+            // Формируем сообщение
+            string message = $"Вопрос: {question.Question}\n\n" +
+                            $"Варианты ответов:\n{string.Join("\n", question.Options.Select((o, i) => $"{i + 1}. {o}"))}\n\n";
+
+            if (answer == null || answer.SelectedOptionIndex == -1)
+            {
+                message += "Вы не ответили на этот вопрос\n";
+            }
+            else
+            {
+                message += $"Ваш ответ: {question.Options[answer.SelectedOptionIndex]}\n";
+            }
+
+            message += $"Правильный ответ: {question.Options[question.CorrectAnswerIndex]}";
+
+            // Показываем диалоговое окно
+            MessageBox.Show(message, "Детали вопроса", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
     }
 }
