@@ -135,11 +135,19 @@ namespace WindowsFormsApp2
 
         private void SaveTicketsToFile(List<List<QuizQuestion>> tickets)
         {
+            var withAnswerVariants = false;
+
             SaveFileDialog saveFileDialog = new SaveFileDialog
             {
                 Filter = "Текстовые файлы (*.txt)|*.txt|Файлы RTF (*.rtf)|*.rtf|Все файлы (*.*)|*.*",
                 Title = "Сохранить билеты"
             };
+
+
+            if (MessageBox.Show("Создать билеты с вариантами ответов?", "Внимание!", MessageBoxButtons.YesNo) == DialogResult.Yes)
+            {
+                withAnswerVariants = true;
+            }
 
             if (saveFileDialog.ShowDialog() == DialogResult.OK)
             {
@@ -158,8 +166,11 @@ namespace WindowsFormsApp2
                         {
                             lines.Add($"Вопрос: {question.Question}");
                             lines.Add($"Тема: {question.Topic}");
-                            lines.Add($"Варианты: {string.Join(", ", question.Options)}");
-                            lines.Add($"Правильный ответ: {question.Options[question.CorrectAnswerIndex]}");
+                            if(withAnswerVariants)
+                            {
+                                lines.Add($"Варианты: {string.Join(", ", question.Options)}");
+                            }
+                            //lines.Add($"Правильный ответ: {question.Options[question.CorrectAnswerIndex]}");
                             lines.Add("");
                         }
 
@@ -308,6 +319,16 @@ namespace WindowsFormsApp2
 
             // Перемешиваем вопросы в билете
             return testQuestions.OrderBy(q => random.Next()).ToList();
+        }
+
+        private void groupBox1_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -57,8 +57,26 @@ namespace WindowsFormsApp2
                     MessageBox.Show("Некорректный индекс правильного ответа");
                     return;
                 }
+                if(textBoxQuestion.Text == "")
+                {
+                    MessageBox.Show("Введите вопрос!");
+                    return;
+                }
 
-                var newQuestion = new QuizQuestion
+                if (textBoxSubject.Text == "")
+                {
+                    MessageBox.Show("Введите название предмета!");
+                    return;
+                }
+
+                if (textBoxTopic.Text == "")
+                {
+                    MessageBox.Show("Введите тему предмета!");
+                    return;
+                }
+
+
+            var newQuestion = new QuizQuestion
                 {
                     Question = textBoxQuestion.Text,
                     Subject = textBoxSubject.Text,

@@ -191,6 +191,11 @@ namespace WindowsFormsApp2
             var resultsForm = new Form5(tickets, userAnswers);
             resultsForm.ShowDialog();
         }
+
+        private void labelQuestion_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 
 

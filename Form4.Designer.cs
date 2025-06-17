@@ -51,7 +51,7 @@ namespace WindowsFormsApp2
             this.listBoxQuestions.ItemHeight = 20;
             this.listBoxQuestions.Location = new System.Drawing.Point(12, 156);
             this.listBoxQuestions.Name = "listBoxQuestions";
-            this.listBoxQuestions.Size = new System.Drawing.Size(406, 64);
+            this.listBoxQuestions.Size = new System.Drawing.Size(477, 64);
             this.listBoxQuestions.TabIndex = 0;
             this.listBoxQuestions.SelectedIndexChanged += new System.EventHandler(this.listBoxQuestions_SelectedIndexChanged);
             // 
@@ -83,10 +83,10 @@ namespace WindowsFormsApp2
             this.groupBoxOptions.Controls.Add(this.radioButton1);
             this.groupBoxOptions.Location = new System.Drawing.Point(12, 236);
             this.groupBoxOptions.Name = "groupBoxOptions";
-            this.groupBoxOptions.Size = new System.Drawing.Size(406, 159);
+            this.groupBoxOptions.Size = new System.Drawing.Size(477, 159);
             this.groupBoxOptions.TabIndex = 3;
             this.groupBoxOptions.TabStop = false;
-            this.groupBoxOptions.Text = "groupBox1";
+            this.groupBoxOptions.Text = "Варианты ответов";
             // 
             // radioButton4
             // 
@@ -134,11 +134,11 @@ namespace WindowsFormsApp2
             // 
             // buttonResults
             // 
-            this.buttonResults.Location = new System.Drawing.Point(343, 12);
+            this.buttonResults.Location = new System.Drawing.Point(414, 6);
             this.buttonResults.Name = "buttonResults";
             this.buttonResults.Size = new System.Drawing.Size(75, 23);
             this.buttonResults.TabIndex = 4;
-            this.buttonResults.Text = "button1";
+            this.buttonResults.Text = "Результаты";
             this.buttonResults.UseVisualStyleBackColor = true;
             this.buttonResults.Click += new System.EventHandler(this.buttonResults_Click);
             // 
@@ -154,11 +154,11 @@ namespace WindowsFormsApp2
             // 
             // buttonNext
             // 
-            this.buttonNext.Location = new System.Drawing.Point(157, 410);
+            this.buttonNext.Location = new System.Drawing.Point(223, 410);
             this.buttonNext.Name = "buttonNext";
             this.buttonNext.Size = new System.Drawing.Size(75, 23);
             this.buttonNext.TabIndex = 6;
-            this.buttonNext.Text = "button2";
+            this.buttonNext.Text = "Далее";
             this.buttonNext.UseVisualStyleBackColor = true;
             this.buttonNext.Click += new System.EventHandler(this.buttonNext_Click_1);
             // 
@@ -171,12 +171,13 @@ namespace WindowsFormsApp2
             this.labelQuestion.Size = new System.Drawing.Size(51, 20);
             this.labelQuestion.TabIndex = 7;
             this.labelQuestion.Text = "label1";
+            this.labelQuestion.Click += new System.EventHandler(this.labelQuestion_Click);
             // 
             // Form4
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(429, 445);
+            this.ClientSize = new System.Drawing.Size(501, 445);
             this.Controls.Add(this.labelQuestion);
             this.Controls.Add(this.buttonNext);
             this.Controls.Add(this.labelTicket);
@@ -185,7 +186,9 @@ namespace WindowsFormsApp2
             this.Controls.Add(this.labelTopic);
             this.Controls.Add(this.labelSubject);
             this.Controls.Add(this.listBoxQuestions);
+            this.ForeColor = System.Drawing.SystemColors.ControlText;
             this.Name = "Form4";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Тест";
             this.Load += new System.EventHandler(this.Form4_Load);
             this.groupBoxOptions.ResumeLayout(false);

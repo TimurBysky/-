@@ -32,15 +32,14 @@ namespace WindowsFormsApp2
             this.buttonCreate = new System.Windows.Forms.Button();
             this.checkedListBoxTopics = new System.Windows.Forms.CheckedListBox();
             this.numericUpDownQuesNumber = new System.Windows.Forms.NumericUpDown();
-            this.numericUpDownTopicsNumber = new System.Windows.Forms.NumericUpDown();
             this.numericUpDownTestsNumber = new System.Windows.Forms.NumericUpDown();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.buttonSaveToRTF = new System.Windows.Forms.Button();
             this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownQuesNumber)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownTopicsNumber)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownTestsNumber)).BeginInit();
             this.SuspendLayout();
             // 
@@ -57,9 +56,9 @@ namespace WindowsFormsApp2
             // checkedListBoxTopics
             // 
             this.checkedListBoxTopics.FormattingEnabled = true;
-            this.checkedListBoxTopics.Location = new System.Drawing.Point(173, 12);
+            this.checkedListBoxTopics.Location = new System.Drawing.Point(173, 27);
             this.checkedListBoxTopics.Name = "checkedListBoxTopics";
-            this.checkedListBoxTopics.Size = new System.Drawing.Size(207, 244);
+            this.checkedListBoxTopics.Size = new System.Drawing.Size(207, 229);
             this.checkedListBoxTopics.TabIndex = 2;
             this.checkedListBoxTopics.ItemCheck += new System.Windows.Forms.ItemCheckEventHandler(this.checkedListBoxTopics_ItemCheck);
             // 
@@ -69,13 +68,6 @@ namespace WindowsFormsApp2
             this.numericUpDownQuesNumber.Name = "numericUpDownQuesNumber";
             this.numericUpDownQuesNumber.Size = new System.Drawing.Size(120, 20);
             this.numericUpDownQuesNumber.TabIndex = 3;
-            // 
-            // numericUpDownTopicsNumber
-            // 
-            this.numericUpDownTopicsNumber.Location = new System.Drawing.Point(425, 153);
-            this.numericUpDownTopicsNumber.Name = "numericUpDownTopicsNumber";
-            this.numericUpDownTopicsNumber.Size = new System.Drawing.Size(120, 20);
-            this.numericUpDownTopicsNumber.TabIndex = 4;
             // 
             // numericUpDownTestsNumber
             // 
@@ -91,7 +83,8 @@ namespace WindowsFormsApp2
             this.groupBox1.Size = new System.Drawing.Size(154, 244);
             this.groupBox1.TabIndex = 6;
             this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "groupBox1";
+            this.groupBox1.Text = "Предметы";
+            this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
             // 
             // buttonSaveToRTF
             // 
@@ -108,9 +101,10 @@ namespace WindowsFormsApp2
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(385, 29);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(168, 13);
+            this.label1.Size = new System.Drawing.Size(160, 13);
             this.label1.TabIndex = 9;
-            this.label1.Text = "Количество вопросов по темам";
+            this.label1.Text = "Количество вопросов по теме";
+            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // label2
             // 
@@ -121,25 +115,34 @@ namespace WindowsFormsApp2
             this.label2.TabIndex = 10;
             this.label2.Text = "Количество билетов";
             // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(174, 12);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(97, 13);
+            this.label3.TabIndex = 11;
+            this.label3.Text = "Темы предметов:";
+            // 
             // Form3
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(557, 281);
+            this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.buttonSaveToRTF);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.numericUpDownTestsNumber);
-            this.Controls.Add(this.numericUpDownTopicsNumber);
             this.Controls.Add(this.numericUpDownQuesNumber);
             this.Controls.Add(this.checkedListBoxTopics);
             this.Controls.Add(this.buttonCreate);
             this.Name = "Form3";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Новый тест";
             this.Load += new System.EventHandler(this.Form3_Load);
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownQuesNumber)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownTopicsNumber)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownTestsNumber)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -151,12 +154,12 @@ namespace WindowsFormsApp2
         private System.Windows.Forms.Button buttonCreate;
         private System.Windows.Forms.CheckedListBox checkedListBoxTopics;
         private System.Windows.Forms.NumericUpDown numericUpDownQuesNumber;
-        private System.Windows.Forms.NumericUpDown numericUpDownTopicsNumber;
         private System.Windows.Forms.NumericUpDown numericUpDownTestsNumber;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Button buttonSaveToRTF;
         private System.Windows.Forms.SaveFileDialog saveFileDialog1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label3;
     }
 }

@@ -80,5 +80,10 @@ namespace WindowsFormsApp2
                 }
             }
         }
+
+        private void treeViewResults_NodeMouseDoubleClick(object sender, TreeNodeMouseClickEventArgs e)
+        {
+
+        }
     }
 }
